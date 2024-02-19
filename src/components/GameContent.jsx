@@ -9,6 +9,15 @@ const GameContent = ({ onRestart }) => {
     setCurrentNode(textNodes.find(node => node.id === 1));
   }, []);
 
+  function generateBackgroundImageUrl(id) {
+    const imageUrl = `${process.env.PUBLIC_URL}/images/node_${id}.png`;
+    return imageUrl;
+  }
+
+  const backgroundStyle = {
+    backgroundImage: currentNode ? `url(${generateBackgroundImageUrl(currentNode.id)})` : 'none'
+  };
+
   const selectOption = (nextTextId) => {
     if (nextTextId === -1) {
       onRestart(); // Appelle la fonction de réinitialisation pour recommencer le jeu
@@ -19,7 +28,7 @@ const GameContent = ({ onRestart }) => {
   };
 
   return (
-    <div id="game-content">
+    <div id="game-content" style={backgroundStyle}>
       {currentNode && (
         <>
           <div id="text">{currentNode.text}</div>

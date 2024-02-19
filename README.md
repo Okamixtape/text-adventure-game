@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+# Text Adventure Game in React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Introduction
 
-## Available Scripts
+This tutorial walks you through creating a text adventure game in React. The game displays a series of text nodes, each presenting a scenario, and offers choices to the player that lead to different outcomes.
 
-In the project directory, you can run:
+## Setup
 
-### `npm start`
+Create a new React app: `npx create-react-app text-adventure-game`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Structure your project with components: Game, StartPopup, GameContent.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Game Component
 
-### `npm test`
+The Game component is the entry point of your game. It manages whether the start popup or the game content should be displayed.
+It also includes a function to restart the game, passed down to GameContent.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## StartPopup Component
 
-### `npm run build`
+This component displays the initial game instructions and a start button.
+On clicking the start button, the game content is displayed.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## GameContent Component
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+It manages the display of the game's text and options based on the current node.
+Options lead to different nodes based on the player's choices.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Managing State
 
-### `npm run eject`
+Use React's useState and useEffect hooks to manage the game's state and side effects, like updating the current node.
+A global state management solution (like Context API or Redux) might be beneficial for more complex state logic.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Handling Background Images
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Show how to dynamically change the background image based on the current node using inline styles or CSS classes.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Conclusion
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+This game is a basic framework. You can expand it by adding more nodes, enhancing the story, and introducing more complex game mechanics like inventory management.
 
-## Learn More
+## Deploying
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Deploy your game using platforms like Netlify or GitHub Pages to share it with others.
+By following this tutorial, you'll learn the basics of React development while creating an engaging text adventure game. Enjoy coding and let your imagination guide the adventure!
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
