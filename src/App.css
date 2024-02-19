@@ -1,70 +1,136 @@
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
-  font-family: Verdana, Tahoma, sans-serif;
+  font-family: "Cinzel", serif; /* A more adventurous font */
 }
 
 body {
   padding: 0;
   margin: 0;
   display: flex;
-  justify-content: center;
   align-items: center;
   width: 100vw;
   height: 100vh;
-  background-color: darkslategrey;
-  background-size: cover;
-  background-repeat:no-repeat;
-  background-position: center center;
+  overflow: hidden; /* Prevents scrolling if the content exceeds the viewport */
 }
 
-#start-popup {
+#start-popup,
+.modal-overlay {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: rgba(0, 0, 0, 0.8); /* Slight transparency for depth */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.start-text {
+.start-text,
+.modal-content h2 {
+  font-size: 1.5rem;
+  color: #ffe156; /* Gold color for a touch of treasure */
   font-weight: bold;
+  margin-bottom: 20px;
 }
 
 .container {
-  width: 800px;
-  max-width: 80%;
-  padding: 10px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px 2px;
-  color: white;
-  position: relative;
-  bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw; /* Adjusted to full viewport width */
+  height: 50vh; /* Adjusted to cover the bottom half */
+  margin-top: 50vh; /* Pushes the container to start from the middle of the screen */
+  padding: 20px;
+  border-radius: 0; /* Adjusted for a full-width bottom panel */
+  background: linear-gradient(to top, #ffb347, #ffcc33);
+  color: #f4ebe8; /* Ensuring text is readable */
+  z-index: 1;
+  position: fixed; /* Fixes the panel at the bottom */
+  bottom: 0; /* Aligns to the bottom of the viewport */
+  justify-content: center; /* Centers the content vertically */
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2); /* Adds depth with a shadow from the top */
+  backdrop-filter: blur(5px); /* Soft blur effect for depth, optional */
+}
+
+#game-content {
+  padding: 2rem;
+  border-radius: 2rem;
+  background: black;
+}
+
+#text {
+  font-size: 1.5rem;
+  color: #f4ebe8; /* Light text for better readability */
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .text {
-  text-align: center;
+  font-size: 1.2rem;
+  text-align: justify; /* Improved readability for game text */
+  margin-bottom: 20px;
 }
 
 .btn-grid {
   display: grid;
-  grid-template-columns: repeat(2, auto);
-  gap: 10px;
-  margin-top: 20px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
 }
 
 .btn {
-  background-color: hsl(200, 100%, 50%);
-  border: 1px solid hsl(200, 100%, 30%);
+  background-color: #755c34; /* Earthy, wooden button color */
+  border: none;
   border-radius: 5px;
-  padding: 5px 10px;
-  color: white;
-  outline: none;
+  padding: 10px 20px;
+  color: #f4ebe8;
+  font-size: 1rem;
+  cursor: pointer; /* Cursor change to indicate clickable */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
 }
 
 .btn:hover {
-  border-color: lightgreen;
+  background-color: #927746; /* Lighter shade when hovering */
 }
 
-.cancel-container {
-  margin-top: 20px;
+.cancel-container button {
+  width: 100%; /* Full width for the cancel button */
+  margin-top: 30px; /* More space above the cancel button */
+}
+
+.tutorial-container {
+  position: relative;
+  z-index: 1;
+}
+
+.tutorial-btn {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 1;
+  background-color: #3a506b; /* Dark blue for the tutorial button */
+  color: #fff;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.modal-content {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  background: #1a2a33; /* Dark, deep sea blue for modal background */
+  color: #f4ebe8; /* Keeping text readable */
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.modal-content button {
+  background-color: #3a506b; /* Dark blue for the close button */
+  color: #fff;
+  font-weight: bold;
 }
